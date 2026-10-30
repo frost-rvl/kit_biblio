@@ -53,6 +53,8 @@ class Bibliotheque
         return count($this->livres);
     }
 
+    
+
     /**
      * Recherche des livres par mot-cle dans le titre ou l'auteur (insensible a la casse).
      * @return Livre[]

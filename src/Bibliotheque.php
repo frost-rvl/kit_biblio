@@ -68,4 +68,23 @@ class Bibliotheque
         }
         return $resultats;
     }
+    public function obtenirStatistiques(): array
+    {
+        $total = count($this->livres);
+        if ($total === 0) {
+            return ['taux_disponibilite' => 0.0, 'total' => 0];
+        }
+
+        // Si la classe Livre possede une methode estDisponible() ou getQuantite()
+        // Adaptez l'une des deux lignes ci-dessous selon votre classe Livre :
+        
+        $disponibles = count(array_filter($this->livres, fn($l) => $l->estDisponible())); 
+        // OU si c'est par quantite : 
+        // $disponibles = count(array_filter($this->livres, fn($l) => $l->getQuantite() > 0));
+
+        return [
+            'taux_disponibilite' => round(($disponibles / $total) * 100, 2),
+            'total' => $total,
+        ];
+    }
 }

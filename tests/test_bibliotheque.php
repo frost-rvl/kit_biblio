@@ -58,3 +58,5 @@ $l4 = new Livre('9780596007126', 'Algo Avance', 'Cormen');
 $bib->ajouter($l4);
 $res4 = $bib->rechercher('algo');
 verifier(count($res4) === 2, 'rechercher("algo") trouve 2 livres');
+
+verifier($bib->obtenirStatistiques()['taux_disponibilite'] === 100.0, "Taux de disponibilite correct");

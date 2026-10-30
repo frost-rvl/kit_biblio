@@ -1,0 +1,23 @@
+name: Integration Continue PHP
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code source
+        uses: actions/checkout@v4
+
+      - name: Configurer PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: mbstring, xml, ctype, iconv
+
+      - name: Executer les tests unitaires
+        run: php kit_biblio/tests/run.php

@@ -20,4 +20,4 @@ jobs:
           extensions: mbstring, xml, ctype, iconv
 
       - name: Executer les tests unitaires
-        run: php kit_biblio/tests/run.php
+        run: php tests/run.php
